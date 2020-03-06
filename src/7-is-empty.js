@@ -3,15 +3,15 @@ export const isEmpty = (stringArrayOrObject) => {
 
   if (type === 'string') {
     return stringArrayOrObject === ''
-  } else if (type === '') {
-    return false
-  } else if (type === [0, 1]) {
-    return stringArrayOrObject === []
-  } else if (type === []) {
-    return false
-  } else if (type === ({ name: " " })) {
-    return stringArrayOrObject === {}
-  } else if (type === {}) {
-    return false
   }
+
+  if (type === 'array') {
+    return stringArrayOrObject.length === 0
+  }
+
+  if (type === 'object') {
+    return Object.entries(stringArrayOrObject).length === 0
+  }
+
+  return false
 }
